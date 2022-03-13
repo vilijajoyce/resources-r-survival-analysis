@@ -1,7 +1,8 @@
 #' ---
 #' title: "Survival Analysis Tutorial"
-#' author: "Vilija Joyce"
+#' author: "Vilija Joyce (via emilyzabor.com)"
 #' date: "20220312"
+#' 
 #' output:
 #'    html_document:
 #'      toc: true
@@ -22,7 +23,7 @@ test1 <-
   tibble(
     sx_date = c("2007-06-22", "2004-02-13", "2010-10-27"), 
     last_fup_date = c("2017-04-15", "2018-07-04", "2016-10-31")
-    )
+  )
 
 #' Ck
 glimpse(test1)
@@ -35,7 +36,7 @@ test1 %>%
   mutate(
     sx_date = as.Date(sx_date, format = "%Y-%m-%d"), 
     last_fup_date = as.Date(last_fup_date, format = "%Y-%m-%d") 
-    )
+  )
 #' Note that dates now recorded as proper dates, not character vars
 
 #' Calculate survival time by subracting follow-up date from start date
@@ -47,7 +48,7 @@ test1 %>%
         difftime(last_fup_date, 
                  sx_date, 
                  units = "days")) / 365.25
-    )
+  )
 
 
 #' ## Use lung cancer dataset to run survival analysis
@@ -68,15 +69,15 @@ names(f1)
 #' Basic K-M plot using base R 
 #' Label axes
 plot(survfit(Surv(time, status) ~ 1, data = lung),
-	xlab = "Days",
-	ylab = "Overall survival probability")
+     xlab = "Days",
+     ylab = "Overall survival probability")
 
 #' Fancy K-M plot using ggsurvplot
 ggsurvplot(
-	fit = survfit(Surv(time, status) ~ 1, data = lung),
-	xlab = "Days",
-	ylab = "Overall survival probability")
-	
+  fit = survfit(Surv(time, status) ~ 1, data = lung),
+  xlab = "Days",
+  ylab = "Overall survival probability")
+
 #' Probability of surviving beyond a certain number of years 
 #' 1-month probability of survival
 #' 3-month 
@@ -106,8 +107,8 @@ coxph(Surv(time, status) ~ sex + age + wt.loss, data = lung)
 #' Hazard ratio with confidence intervals and p-value in formatted table 
 coxph(Surv(time, status) ~ sex, data = lung) %>% 
   gtsummary::tbl_regression(exp = TRUE) 
-  
-  coxph(Surv(time, status) ~ sex + age + wt.loss, data = lung) %>% 
+
+coxph(Surv(time, status) ~ sex + age + wt.loss, data = lung) %>% 
   gtsummary::tbl_regression(exp = TRUE) 
 
 #' ## Check for assumption that hazards are proportional at each point in time throughout follow-up.
