@@ -1,2 +1,1 @@
-# Survival Analysis Tutorial
-[https://htmlpreview.github.io/?https://github.com/vilijajoyce/survival-analysis/survival-analysis.html](https://htmlpreview.github.io/?https://github.com/vilijajoyce/survival-analysis/survival-analysis.html)
+# Survival Analysis Tutorial (https://htmlpreview.github.io/?https://github.com/vilijajoyce/blob/master/survival-analysis/survival-analysis.html)
