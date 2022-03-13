@@ -1,6 +1,6 @@
 #' ---
 #' title: "Survival Analysis Tutorial"
-#' author: "Vilija Joyce (via emilyzabor.com)"
+#' author: "Vilija Joyce (via emilyzabor.com, sthda.com)"
 #' date: "20220312"
 #' 
 #' output:
